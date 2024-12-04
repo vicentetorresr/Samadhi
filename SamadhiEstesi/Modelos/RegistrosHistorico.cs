@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SamadhiEstesi.Modelos
 {
+    [Table("RegistrosHistoricos")]
     public partial class RegistrosHistorico
     {
         public int IdRegistro { get; set; }

@@ -1,8 +1,45 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .home-container {
+        position: relative;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: url('/images/samadhi.jpg') no-repeat center center;
+        background-size: cover;
+        color: rgba(255, 230, 230, 0.9);
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    .home-content {
+        background-color: rgba(58, 10, 10, 0.7);
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        max-width: 600px;
+        backdrop-filter: blur(5px);
+    }
+
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+        .logo-container img {
+            max-width: 300px;
+            max-height: 200px;
+            object-fit: contain;
+        }
+</style>
+
+<div class="home-container">
+    <div class="home-content">
+        <div class="logo-container">
+            <img src="/images/samadhi_logo.png" alt="Samadhi Logo" />
+        </div>
+    </div>
 </div>

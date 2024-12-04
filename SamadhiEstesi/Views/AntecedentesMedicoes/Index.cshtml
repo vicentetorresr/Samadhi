@@ -1,13 +1,84 @@
 ﻿@model IEnumerable<SamadhiEstesi.Modelos.AntecedentesMedico>
-
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<style>
+    .table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background-color: rgba(70, 15, 15, 0.6);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
 
+    body {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .table thead {
+        background-color: rgba(100, 20, 20, 0.8);
+    }
+
+    .table th {
+        color: #ff6b6b;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+    }
+
+    .table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .table tr:nth-child(even) {
+        background-color: rgba(50, 10, 10, 0.4);
+    }
+
+    .table tr:hover {
+        background-color: rgba(90, 20, 20, 0.6);
+        transition: background-color 0.3s ease;
+    }
+
+    .table a {
+        color: #ff4757;
+        text-decoration: none;
+        margin-right: 10px;
+        transition: color 0.3s ease;
+    }
+
+        .table a:hover {
+            color: #ff6b6b;
+            text-decoration: underline;
+        }
+
+    a.create-new {
+        display: inline-block;
+        margin-bottom: 15px;
+        padding: 10px 15px;
+        background-color: rgba(100, 20, 20, 0.7);
+        color: #ff6b6b;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        a.create-new:hover {
+            background-color: rgba(120, 30, 30, 0.9);
+        }
+</style>
+
+<h1>Antecedentes Médicos</h1>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="create-new">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -28,26 +99,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPersonaNavigation.IdPersona)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAntecedente">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdAntecedente">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAntecedente">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaRegistro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdPersonaNavigation.IdPersona)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdAntecedente">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdAntecedente">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdAntecedente">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

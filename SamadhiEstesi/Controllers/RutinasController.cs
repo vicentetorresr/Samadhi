@@ -57,7 +57,7 @@ namespace SamadhiEstesi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdRutina,IdPersona,Descripción,Fecha,Comentario,Estado")] Rutina rutina)
+        public async Task<IActionResult> Create([Bind("IdRutina,IdPersona,Descripcion,Fecha,Comentario,Estado")] Rutina rutina)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace SamadhiEstesi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdRutina,IdPersona,Descripción,Fecha,Comentario,Estado")] Rutina rutina)
+        public async Task<IActionResult> Edit(int id, [Bind("IdRutina,IdPersona,Descripcion,Fecha,Comentario,Estado")] Rutina rutina)
         {
             if (id != rutina.IdRutina)
             {

@@ -1,13 +1,65 @@
 ﻿@model IEnumerable<SamadhiEstesi.Modelos.Rutina>
-
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    body {
+        background-color: rgba(48, 10, 10, 0.5);
+        color: rgba(255, 230, 230, 0.9);
+    }
 
-<h1>Index</h1>
+    .table {
+        color: rgba(255, 230, 230, 0.9);
+        width: 100%;
+    }
 
+        .table thead {
+            background-color: rgba(84, 15, 15, 0.8);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: rgba(58, 10, 10, 0.3);
+        }
+
+        .table tbody tr:hover {
+            background-color: rgba(84, 15, 15, 0.4);
+            transition: background-color 0.3s ease;
+        }
+
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin: 2px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .btn-create {
+        background-color: rgba(30, 120, 30, 0.7);
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+        .btn-create:hover {
+            background-color: rgba(40, 140, 40, 0.9);
+        }
+
+    a {
+        color: rgba(255, 150, 150, 0.9);
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: rgba(255, 180, 180, 1);
+            text-decoration: underline;
+        }
+</style>
+
+<h1>Rutinas</h1>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -31,29 +83,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripción)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comentario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPersonaNavigation.IdPersona)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdRutina">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdRutina">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdRutina">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripción)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comentario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdPersonaNavigation.IdPersona)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdRutina">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdRutina">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdRutina">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

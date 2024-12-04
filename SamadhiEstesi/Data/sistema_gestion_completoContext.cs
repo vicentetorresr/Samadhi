@@ -42,7 +42,7 @@ namespace SamadhiEstesi.Data
                 entity.HasKey(e => e.IdAntecedente)
                     .HasName("PK__antecede__3E014641ED9C5608");
 
-                entity.ToTable("antecedentes_medicos");
+                entity.ToTable("AntecedentesMedicos");
 
                 entity.HasIndex(e => e.IdPersona, "IX_antecedentes_medicos_id_persona");
 
@@ -162,7 +162,7 @@ namespace SamadhiEstesi.Data
                 entity.HasKey(e => e.IdRegistro)
                     .HasName("PK__registro__48155C1F8A77FA5E");
 
-                entity.ToTable("registros_historicos");
+                entity.ToTable("RegistrosHistoricos");
 
                 entity.HasIndex(e => e.IdPersona, "IX_registros_historicos_id_persona");
 
@@ -215,7 +215,7 @@ namespace SamadhiEstesi.Data
 
                 entity.Property(e => e.Descripción)
                     .HasColumnType("text")
-                    .HasColumnName("descripción");
+                    .HasColumnName("descripcion");
 
                 entity.Property(e => e.Estado)
                     .HasColumnName("estado")
